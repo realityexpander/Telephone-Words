@@ -12,19 +12,22 @@ function telephoneWords (digitString) {
       9: 'WXYZ'
   };
 
-  let res = [];
-  let tmp;
-
-  for(let i of digitString) {
-    tmp = '';
-    for(let j of keys[i]) {
-      tmp += keys[i]
-      res.push(tmp)
-      tmp = tmp.slice(0,tmp.length-1)
+  var res = [];
+  function makeLettersFromDigits (word, digits) {
+    if (digits.length === 0) {
+      return res.push(word);
     }
-  }
+    
+    keys[digits[0]].split('')
+      .forEach(function(letter) {
+        makeLettersFromDigits(word + letter, digits.slice(1));
+      });
+  };
+
+  makeLettersFromDigits('', digitString.split(''));
 
   return res;
+
 }
 
 console.log(telephoneWords('0123'));
