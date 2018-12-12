@@ -1,8 +1,17 @@
 function telephoneWords (digitString) {
-  let keys = [ ['0'],['1'], ['2','a','b','c'], ['3','d','e','f'], 
-               ['4','g','h','i'], ['5','j','k','l'], ['6','m', 'n', 'o'],
-               ['7','p', 'q', 'r', 's'], ['8','t', 'u', 'v'], 
-               ['9','w', 'x', 'y', 'z']];
+  let keys = { 
+      0: '0',
+      1: '1',
+      2: 'ABC',
+      3: 'DEF',
+      4: 'GHI',
+      5: 'JKL',
+      6: 'MNO',
+      7: 'PQRS',
+      8: 'TUV',
+      9: 'WXYZ'
+  };
+
   let res = [];
   let tmp;
 
