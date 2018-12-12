@@ -18,10 +18,10 @@ function telephoneWords (digitString) {
       return res.push(word);
     }
     
-    keys[digits[0]].split('')
-      .forEach(function(letter) {
-        makeLettersFromDigits(word + letter, digits.slice(1));
-      });
+    let x = keys[digits[0]].split('');
+    for(let i of x) {
+      makeLettersFromDigits(word + i, digits.slice(1));
+    }
   };
 
   makeLettersFromDigits('', digitString.split(''));
